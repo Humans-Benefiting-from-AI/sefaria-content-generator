@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-09-04T08:51:05.242946",
+  "tests_run": 22,
+  "tests_passed": 22,
+  "tests_failed": 0,
+  "detailed_results": [
+    {
+      "test_name": "Get Text - Genesis 1:1",
+      "status": "PASSED",
+      "execution_time": 0.22030997276306152,
+      "result": "Retrieved text: <big>\u05d1\u05bc\u05b0</big>\u05e8\u05b5\u05d0\u05e9\u05c1\u05b4\u0596\u05d9\u05ea \u05d1\u05bc\u05b8\u05e8\u05b8\u05a3\u05d0 \u05d0\u05b1\u05dc\u05b9\u05d4\u05b4\u0591\u05d9\u05dd \u05d0\u05b5\u05a5\u05ea \u05d4\u05b7\u05e9..."
+    },
+    {
+      "test_name": "Get Text - English Version",
+      "status": "PASSED",
+      "execution_time": 0.2286238670349121,
+      "result": "English text: When God began to create<sup class=\"footnote-marke..."
+    },
+    {
+      "test_name": "Get Related Content",

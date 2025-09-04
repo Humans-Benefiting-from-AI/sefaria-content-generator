@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sefaria Integration Tool</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sefaria Integration Tool</h1>
+        <p>Create and explore content from the Sefaria library</p>
+    </header>
+
+    <main>
+        <section id="text-retrieval">
+            <h2>Text Retrieval</h2>
+            <input type="text" id="text-ref" placeholder="Enter a Sefaria reference (e.g., Genesis 1:1)">
+            <button id="fetch-text-btn">Fetch Text</button>
+            <div id="text-output"></div>
+        </section>
+
+        <section id="content-generation">
+            <h2>Content Generation</h2>
+            <select id="content-type">
+                <option value="study_guide">Study Guide</option>
+                <option value="commentary_collection">Commentary Collection</option>
+                <option value="thematic_collection">Thematic Collection</option>
+            </select>
+            <input type="text" id="generation-ref" placeholder="Enter reference or theme">
+            <button id="generate-content-btn">Generate Content</button>
+            <div id="generated-content-output"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by Manus AI</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
