@@ -3,6 +3,7 @@ import sys
 # DON'T CHANGE THIS !!!
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
+from werkzeug.security import safe_join
 from flask import Flask, send_from_directory
 from src.models.user import db
 from src.routes.user import user_bp
@@ -28,7 +29,8 @@ def serve(path):
     if static_folder_path is None:
             return "Static folder not configured", 404
 
-    if path != "" and os.path.exists(os.path.join(static_folder_path, path)):
+    safe_path = safe_join(static_folder_path, path) if path else None
+    if safe_path and os.path.exists(safe_path):
         return send_from_directory(static_folder_path, path)
     else:
         index_path = os.path.join(static_folder_path, 'index.html')
@@ -39,5 +41,5 @@ def serve(path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=os.environ.get("FLASK_DEBUG", "0").lower() in ("1", "true", "yes"))
 
