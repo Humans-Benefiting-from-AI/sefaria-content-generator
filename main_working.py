@@ -1,3 +1,4 @@
+import logging
 #!/usr/bin/env python3
 """
 Working Sefaria Content Generator Application
@@ -41,6 +42,7 @@ if SEFARIA_AVAILABLE:
         content_generator = AdvancedContentGenerator(sefaria_client)
         templates = ContentTemplates()
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         print(f"Error initializing Sefaria client: {e}")
         SEFARIA_AVAILABLE = False
 
@@ -69,7 +71,8 @@ def get_text():
             "success": True
         })
     except Exception as e:
-        return jsonify({"error": str(e), "success": False}), 500
+        logging.getLogger(__name__).exception("Request failed")
+        return jsonify({"error": "Internal server error", "success": False}), 500
 
 @app.route('/api/generate')
 def generate_content():
@@ -100,7 +103,8 @@ def generate_content():
             "success": True
         })
     except Exception as e:
-        return jsonify({"error": str(e), "success": False}), 500
+        logging.getLogger(__name__).exception("Request failed")
+        return jsonify({"error": "Internal server error", "success": False}), 500
 
 @app.route('/api/templates')
 def get_templates():
@@ -121,7 +125,8 @@ def get_templates():
             "success": True
         })
     except Exception as e:
-        return jsonify({"error": str(e), "success": False}), 500
+        logging.getLogger(__name__).exception("Request failed")
+        return jsonify({"error": "Internal server error", "success": False}), 500
 
 @app.route('/api/health')
 def health_check():
@@ -153,5 +158,5 @@ if __name__ == '__main__':
     app.run(
         host='0.0.0.0',
         port=8080,
-        debug=True
+        debug=os.environ.get("FLASK_DEBUG", "0").lower() in ("1", "true", "yes")
     )

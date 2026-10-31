@@ -1,3 +1,4 @@
+import logging
 from flask import Blueprint, request, jsonify
 from src.sefaria_integration import SefariaAPIClient, SefariaContentGenerator
 
@@ -15,7 +16,8 @@ def get_text():
         text = sefaria_client.get_text(ref)
         return jsonify(text.to_dict())
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logging.getLogger(__name__).exception("Request failed")
+        return jsonify({"error": "Internal server error"}), 500
 
 @sefaria_bp.route("/generate")
 def generate_content():
@@ -37,5 +39,6 @@ def generate_content():
             return jsonify({"error": "Invalid content type"}), 400
         return jsonify(content)
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logging.getLogger(__name__).exception("Request failed")
+        return jsonify({"error": "Internal server error"}), 500
 

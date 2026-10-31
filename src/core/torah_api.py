@@ -1,3 +1,4 @@
+import logging
 """
 Torah Calendar API Routes
 
@@ -57,9 +58,10 @@ def get_current_torah_reading():
             })
             
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -81,9 +83,10 @@ def get_weekly_torah_guide():
             })
             
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -99,9 +102,10 @@ def get_weekly_calendar_summary():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -132,9 +136,10 @@ def get_upcoming_holidays():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -157,9 +162,10 @@ def get_holiday_content(holiday_name):
             })
             
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -175,9 +181,10 @@ def get_current_holiday_content():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -193,9 +200,10 @@ def get_weekly_holiday_alert():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -212,9 +220,10 @@ def get_seasonal_content():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -235,9 +244,10 @@ def get_hebrew_date():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -275,9 +285,10 @@ def get_torah_reading_for_date():
             })
             
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -305,9 +316,10 @@ def get_upcoming_torah_readings():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
@@ -323,9 +335,10 @@ def get_available_holidays():
         })
         
     except Exception as e:
+        logging.getLogger(__name__).exception("Request failed")
         return jsonify({
             'success': False,
-            'error': str(e)
+            'error': 'Internal server error'
         }), 500
 
 
